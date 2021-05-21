@@ -41,6 +41,14 @@ class MyListTest {
     }
 
     @Test
+    void ins0() {
+        lst.add(0, "One");
+        assertFalse(lst.isEmpty());
+        assertEquals(1, lst.size());
+        assertTrue(lst.get(0).equals("One"));
+    }
+
+    @Test
     void insNegIndex() {
         Exception ex = assertThrows(IndexOutOfBoundsException.class, () -> {
             lst.add(-2, "item to be added");
