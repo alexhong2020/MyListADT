@@ -129,11 +129,18 @@ public class MyList<E> implements List<E>{
 
     @Override
     public E get(int index) {
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
         return theData[index];
     }
 
     @Override
     public E set(int index, E element) {
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
+
         theData[index] = element;
         return theData[index];
     }
@@ -158,13 +165,13 @@ public class MyList<E> implements List<E>{
 
     @Override
     public E remove(int index) {
-        if(index < 0 || index > size){
+        if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException();
         }
 
         E removed = theData[index];
 
-        for(int i = index + 1; i < theData.length; i++){
+        for(int i = index + 1; i < size; i++){
             theData[i - 1] = theData[i];
         }
         size--;
