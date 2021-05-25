@@ -69,9 +69,10 @@ public class MyList<E> implements List<E>{
         return true;
     }
 
+    @SuppressWarnings("unchecked")
     private void reallocate() {
         E[] theData1 = (E[]) new Object[theData.length * 2];
-        for(int i = 0; i < theData.length; i++) {
+        for (int i = 0; i < theData.length; i++) {
             theData1[i] = theData[i];
         }
         theData = theData1;
