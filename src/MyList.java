@@ -140,10 +140,15 @@ public class MyList<E> implements List<E>{
 
     @Override
     public void add(int index, E element) {
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
         if(size == theData.length){
             reallocate();
         }
-        for(int i = theData.length; i > index; i--){
+
+
+        for(int i = size; i > index; i--){
             theData[i] = theData[i-1];
         }
         theData[index] = element;

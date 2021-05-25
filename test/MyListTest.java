@@ -62,9 +62,9 @@ class MyListTest {
         lst.add("three");
         lst.add("four");
         lst.add("five");
-        //Exception ex = assertThrows(IndexOutOfBoundsException.class, () -> {
+        Exception ex = assertThrows(IndexOutOfBoundsException.class, () -> {
             lst.add(6, "item to be added");
-        //});
+        });
     }
 
     @Test
