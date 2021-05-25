@@ -158,6 +158,10 @@ public class MyList<E> implements List<E>{
 
     @Override
     public E remove(int index) {
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException();
+        }
+
         E removed = theData[index];
 
         for(int i = index + 1; i < theData.length; i++){
